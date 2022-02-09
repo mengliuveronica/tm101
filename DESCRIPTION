@@ -1,0 +1,16 @@
+Package: tm101
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Meng", "Liu",, "veronica.lm625@gmail.com", 
+    role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-8323-2699"))
+Description: This is the package dedicated to my intro to text mining modules at Cambridge Digital Humanities.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    dplyr,
+    ggplot2,
+    stringr
