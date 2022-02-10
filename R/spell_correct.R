@@ -1,25 +1,21 @@
 #' spell_correct
 #'
-#' @param term the term to check  
+#' @param term 
 #'
 #' @return
 #' @export
 #'
 #' @examples
-
 spell_correct <- function(term) {
-      # if the term is spelled correctly, leave it as is
-      if (hunspell::hunspell_check(term)) {
-            return(term)
-      }
-      
-      suggestions <- hunspell::hunspell_suggest(term)[[1]]
-      
-      # if hunspell found a suggestion, use the first one
-      if (length(suggestions) > 0) {
-            suggestions[[1]]
-      } else {
-            # otherwise, use the original term
-            term
-      }
+   correction <- case_when(
+      # check and (if required) correct spelling
+      !hunspell_check(term, dictionary('en_GB')) ~
+         hunspell_suggest(term, dictionary('en_GB')) %>%
+         # get first suggestion, or NA if suggestions list is empty
+         map(1, .default = NA) %>%
+         unlist(),
+      TRUE ~ term # if term is correct
+   )
+   # if term incorrectly spelled but no suggestions, return original term
+   ifelse(is.na(correction), term, correction)
 }
