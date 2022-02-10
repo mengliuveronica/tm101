@@ -13,4 +13,6 @@ RoxygenNote: 7.1.2
 Imports: 
     dplyr,
     ggplot2,
-    stringr
+    magrittr,
+    stringr,
+    tibble
