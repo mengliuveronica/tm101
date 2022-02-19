@@ -1,0 +1,68 @@
+---
+title: "Exercise 1"
+author: "Your name"
+date: "`r Sys.Date()`"
+output: html_document
+---
+# Eplore six popular books in the Gutenberg Project 
+In Exercise 1, you will explore six popular books (based on download records). This is a good opportunity for you to apply some of the techniques covered in Session I and also get yourself familiar with this dataset since we will be using it for topic modelling. 
+
+Now load the dataset and `tidyverse` into the work space (you should add more library names to the code as you work through the exercise).
+
+```{r}
+pacman::p_load(tidyverse)
+
+remotes::install_github("mengliuveronica/tm101")
+library(tm101)
+
+data("books")
+
+#use the syntax below to unload a package if you cannot install the latest version of tm101 because it is already loaded in your work space
+#pacman::p_unload(tm101)
+
+```
+
+
+## Question 1: What are the 10 most frequent words in each book?
+
+Steps:
+1. explore the dataset to get familiar with its structure. What are the names of the six books?
+
+2. tokenise the text by word.
+Hint: use `unnest_tokens` in `tidytext`
+
+3. remove stop words using pre-made lists.
+It doesn't matter which pre-made list you use. 
+
+4. find out the top 10 words for each book.
+Hint: 
+use `group_by`,`count` and `slice` in `dplyr`. 
+use ?function if you are not familiar with the arguments for the function.  
+
+5. (optional) use the `facet_bar` function in `tm101` to visualise the top 10 words.  
+
+```{r}
+
+```
+
+## Question 2: What are the top 10 words based on tf-idf in each book?
+Hint: adapt the code from the previous question and use `bind_tf_idf` from `tidytext`.
+
+```{r}
+
+```
+
+## Question 3: Can you generate a stop word list based on tf_idf values (e.g., words with tf_idf == 0 or some other threshold you set)? How long is this word list?  
+Hint: use `distinct` to subset unique tokens. 
+
+```{r}
+
+```
+
+## Question 4: What are the top 10 bigrams in each book? Do the top bigrams look informative? why? Could you think of solutions?
+Hint: 
+use `unnest_ngrams` from `tidytext`.
+
+```{r}
+
+```
