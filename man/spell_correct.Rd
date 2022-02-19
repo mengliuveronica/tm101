@@ -2,16 +2,16 @@
 % Please edit documentation in R/spell_correct.R
 \name{spell_correct}
 \alias{spell_correct}
-\title{Title}
+\title{spell_correct}
 \usage{
-spell_correct(input)
+spell_correct(terms)
 }
 \arguments{
-\item{input}{}
+\item{terms}{}
 }
 \value{
 
 }
 \description{
-Title
+spell_correct
 }
