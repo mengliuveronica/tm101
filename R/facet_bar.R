@@ -13,7 +13,7 @@
 #'
 #' @examples
 
-facet_bar <- function(df, y, x, by, nrow = 2, ncol = 2, scales = "free") {
+facet_bar <- function(df, y, x, by, nrow = 2, ncol = 3, scales = "free") {
       mapping <- aes(y = reorder_within({{ y }}, {{ x }}, {{ by }}), 
                      x = {{ x }}, 
                      fill = {{ by }})
