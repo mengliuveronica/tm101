@@ -1,0 +1,112 @@
+---
+title: "Exercise 2"
+author: "Your name"
+date: "`r Sys.Date()`"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Build a topic model using POS tagged version of the books dataset 
+
+In this exercise you will build a topic model using the POS tagged version of the `books` dataset. We'll zoom in on certain parts of speech and use word lemmas as input for the LDA model. 
+
+## Load libraries 
+Fill in the libraries for the analysis (the `tm101` bit is already filled in for you.)
+
+```{r message=FALSE, warning=FALSE}
+pacman::p_load( )
+
+pacman::p_unload(tm101)
+remotes::install_github("mengliuveronica/tm101")
+library(tm101)
+```
+
+## Load data
+
+As mentioned in class, the annotation process usually takes a bit of time so I tagged the data in advance and saved the tagged version as `by_chapter_pos`. Note that as the name suggests, here the unit of analysis is still *chapter*. 
+
+Load the data from `tm101`:
+
+```{r}
+
+```
+
+Explore the dataset to get familiar with its content. You can do this via some code or click on the dataset icon in the `Environment` tab to view it directly. 
+
+```{r}
+
+```
+
+
+## Create a DTM composed only of NOUN and ADJ 
+
+First you need to filter the rows based on `upos` to only contain nouns and adjectives. Then you will create a DTM just like we did in class, but this time use word *lemma* instead.
+
+```{r}
+dtm_pos <- by_chapter_pos %>% 
+  #filter only "NOUN" and "ADJ" in "upos"
+  
+   
+  #remove stop words
+  #hint: check function documentation for dealing with the situation when the "match by" colunm names are not the same  
+  
+  
+  #create dtm based on the counts of "lemma" in each document (chapter)
+  #hint: use `count` and `cast_sparse`
+  
+  
+```
+
+## Fit the model
+
+Hint: use the code we used in class
+
+```{r}
+model_pos <- FitLdaModel( ) 
+```
+
+## Retrieve the results
+
+Hint: use the code we used in class 
+
+```{r}
+phi_pos <- 
+
+
+theta_pos <- 
+  
+  
+```
+
+## Visualise Topic-term probabilities
+
+```{r}
+phi_pos %>% 
+  
+  
+```
+
+## Visualise chapter-topic proportion
+
+```{r}
+theta_pos %>% 
+  
+  
+```
+
+## Visualise distribution of document probabilities for each topic
+
+```{r}
+ggplot(theta_pos) +
+  
+  
+```
+
+What do you think of the model performance? Is it good? Why? 
+
+Well, looks like the performance is much worse than before. One potential reason could be the loss of information from filtering, which means other parts of speech (e.g., adverb) contain useful information for the topics but we removed those. Another reason could be the use of lemmatised tokens, which also reduces variations of words in the text. 
+
+This illustrates influence of pre-processing on model results and reminds us to think carefully about each step we take during the modelling process. 
+
+Now, if you are feeling adventurous, you could try apply what we've covered in your own data or some other books you like from the Gutenberg Project. Have fun modelling!
