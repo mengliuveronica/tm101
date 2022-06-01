@@ -10,8 +10,6 @@
 #' 
 LDA_visual <- function(model,data_tokenised){
       
-      library(LDAvis) 
-      
       phi  <- model$phi
       
       theta <-  model$theta
@@ -41,6 +39,6 @@ LDA_visual <- function(model,data_tokenised){
                   createJSON(phi = phi,theta = theta, vocab = vocab,
                              doc.length = doc.length, term.frequency = term.frequency ))
       
-      serVis(json, out.dir = "vis", open.browser = TRUE)
+      LDAvis::serVis(json, out.dir = "vis", open.browser = TRUE)
       
 }
