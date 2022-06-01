@@ -12,4 +12,4 @@ new_books <- rio::import("data-raw/new_books.rds")
 
 new_dtm <- rio::import("data-raw/new_dtm.rds")
 
-by_chapter_pos <- rio::import("data-raw/by_chapter_pos.rds")
+#by_chapter_pos <- rio::import("data-raw/by_chapter_pos.rds")
