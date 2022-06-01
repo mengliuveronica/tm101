@@ -4,7 +4,7 @@
 \alias{facet_bar}
 \title{facet_bar}
 \usage{
-facet_bar(df, y, x, by, nrow = 2, ncol = 2, scales = "free")
+facet_bar(df, y, x, by, nrow = 2, ncol = 3, scales = "free")
 }
 \arguments{
 \item{df}{data frame used for plotting}
