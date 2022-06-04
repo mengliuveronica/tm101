@@ -1,0 +1,95 @@
+---
+title: "SDS Exercise 1"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+# Explore the fake news based on the type labels
+
+In Exercise 1, you will explore the first 500 news stories in the fake news dataset with regards to the type labels (automatically assigned by the BS Detector).
+This is a good opportunity for you to apply some of the techniques covered in Session 1 and also get yourself familiar with this dataset since we will be using it for topic modelling.
+
+    ✏️If you are a first time user of R, I would recommend working alongside the solution and treat this as a "code-along" project. Of course, if you are feeling adventurous and want more challenge, you can work directly on the worksheet and only check the solution after you're done.
+
+## Load the libraries
+
+Now load the dataset and `tidyverse` into the work space (you should add more library names to the code as you work through the exercise).
+
+```{r}
+pacman::p_load(tidyverse)
+
+remotes::install_github("mengliuveronica/tm101")
+library(tm101)
+
+```
+
+## Load the dataset:
+
+You can either do it from the original dataset or load the `fake_500` dataset directly (please refer to the Text mining intro-SDS.Rmd for codes)
+
+```{r}
+
+
+```
+
+## Question 1: What are the 10 most frequent words in each type?
+
+Steps: 1.
+explore the dataset to get familiar with its structure.
+What types are in this dataset?
+
+2.  tokenise the text by word.
+    Hint: use `unnest_tokens` in `tidytext`
+
+3.  remove stop words using pre-made lists.
+    It doesn't matter which pre-made list you use.
+
+4.  find out the top 10 words for each type.
+    Hint: use `group_by`,`count` and `slice` in `dplyr`.
+    use ?f
+    unction if you are not familiar with the arguments for the function.
+
+5.  (optional) use the `facet_bar` function in `tm101` to visualise the top 10 words.
+
+```{r}
+#see what are the types 
+ 
+
+#find the top 10 words
+
+  
+```
+
+## Question 2: What are the top 10 words based on tf-idf in each type?
+
+Hint: adapt the code from the previous question and use `bind_tf_idf` from `tidytext`.
+
+```{r}
+
+
+```
+
+## Question 3: Can you generate a stop word list based on tf_idf values (e.g., words with tf_idf == 0 or some other threshold you set)? How long is this word list?
+
+Hint: use `distinct` to subset unique tokens.
+
+```{r}
+
+
+```
+
+## Question 4: What are the top 10 bigrams in each type?
+
+Hint: use `unnest_ngrams` from `tidytext`.
+You can also explore what happens when you don't remove stop words and when you do.
+
+```{r}
+
+
+```
+
+Great Job!!

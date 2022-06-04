@@ -1,0 +1,119 @@
+---
+title: "Exercise 2"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Build a topic model using POS tagged version of the books dataset 
+
+In this exercise you will build a topic model using the POS tagged version of the `fake_500` dataset. We'll zoom in on certain parts of speech and use word lemmas as input for the LDA model. 
+
+```
+✏️If you are a first time user of R, I would recommend working alongside the solution and treat this as a "code-along" project. Of course, if you are feeling adventurous and want more challenge, you can work directly on the worksheet and only check the solution after you're done.
+```
+
+## Load libraries 
+```{r message=FALSE, warning=FALSE}
+pacman::p_load( )
+
+pacman::p_unload(tm101)
+remotes::install_github("mengliuveronica/tm101")
+library(tm101)
+```
+
+## Load data
+
+As mentioned in class, the annotation process usually takes a bit of time so I tagged the data in advance and saved the tagged version as `fake_500_pos`. 
+
+Load the data from `tm101`:
+
+```{r}
+data("fake_500_pos")
+```
+
+Explore the dataset to get familiar with its content. You can do this via some code or click on the dataset icon in the `Environment` tab to view it directly. 
+
+```{r}
+
+
+```
+
+
+## Create a DTM composed only of NOUN and ADJ 
+
+First you need to filter the rows based on `upos` to only contain nouns and adjectives. Then you will create a DTM just like we did in class, but this time use word *lemma* instead.
+
+```{r}
+dtm_pos <- fake_500_pos %>% 
+  #filter only "NOUN" and "ADJ" in "upos"
+  
+  #remove stop words
+  #hint: check function documentation for dealing with the situation when the "match by" colunm names are not the same  
+  
+       
+  #create dtm based on the counts of "lemma" in each document (chapter)
+  #hint: use `count` and `cast_sparse`
+  
+      
+      
+```
+
+## Fit the model
+
+Feel free to specify k with a value you believe to be a good start.
+
+```{r}
+
+
+
+```
+
+## Retrieve the results
+
+Hint: use the code we used in class 
+
+```{r}
+
+
+
+```
+
+## Dynamic visualisation of the model results (optional)
+
+We can do some dynamic visualisations of the model results. As mentioned, the use of `LDAvis` package we need to feed data formatted in certain structure. Specifically, we need a "data_tokenised" object with three cols: document, word, n 
+
+```{r eval=FALSE, include=FALSE}
+#create the data_tokenised dataset with three cols: document, word, n 
+
+
+
+#use the LDA_visual function in tm101 to visualise this
+tm101::LDA_visual(model_pos,data_tokenised)
+
+```
+
+Looks like the topics are more or less well-differentiated. 
+
+## Visualise Topic-term probabilities
+
+```{r}
+
+
+```
+
+
+## Visualise distribution of document probabilities for each topic
+
+```{r}
+
+
+```
+
+What do you think of the model performance? Is it good? Why? 
+
+
+
+Great job!!
