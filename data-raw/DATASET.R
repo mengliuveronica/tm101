@@ -1,6 +1,6 @@
 ## code to prepare `DATASET` dataset goes here
 
-usethis::use_data(fake_10, overwrite = TRUE)
+usethis::use_data(fake_500_pos, overwrite = TRUE)
 
 books <- rio::import("data-raw/books.rds")
 
@@ -18,6 +18,6 @@ fake_500 <- rio::import("data-raw/fake_500.rds")
 
 fake_10 <- rio::import("data-raw/fake_10.rds")
 
-
+fake_500_pos <- rio::import("data-raw/fake_500_pos.rds")
 
 #by_chapter_pos <- rio::import("data-raw/by_chapter_pos.rds")
