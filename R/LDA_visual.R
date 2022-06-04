@@ -36,7 +36,7 @@ LDA_visual <- function(model,data_tokenised){
       names(list) = c("phi","theta","doc.length","vocab","term.frequency")
       
       json = with(list, 
-                  createJSON(phi = phi,theta = theta, vocab = vocab,
+                  LDAvis::createJSON(phi = phi,theta = theta, vocab = vocab,
                              doc.length = doc.length, term.frequency = term.frequency ))
       
       LDAvis::serVis(json, out.dir = "vis", open.browser = TRUE)
